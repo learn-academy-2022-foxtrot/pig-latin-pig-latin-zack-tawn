@@ -30,16 +30,18 @@ const App = () => {
         )
       })
       console.log("vowelsArray:", vowelsArray)
-
+      let yArray = []
       // ACTION ITEM: your Pig Latin logic goes here!
       // want vowelsArray.includes()
       if (vowelsArray.includes(eachWord.charAt(0))) {
         return eachWord.concat("way")
       } else if (eachWord.startsWith("qu"))
         return eachWord.slice(2).concat("quay")
-      else if (eachWord.includes("y"))
-        return eachWord
-
+      else if (eachWord.includes("y") && vowelsArray.length === 0)
+        return eachWord.substring(eachWord.indexOf("y")).concat(eachWord.slice(0, eachWord.indexOf("y")).concat("ay"))
+      else if (eachWord[0] !== vowelsArray[0]) {
+        return eachWord.substring(eachWord.indexOf(vowelsArray[0])).concat(eachWord.slice(0, eachWord.indexOf(vowelsArray[0])).concat("ay"))
+      }
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
@@ -54,7 +56,7 @@ const App = () => {
 
   // ACTION ITEM: this method restarts the game by setting the original state, when you are ready for your full user experience delete the test words in setUserInput and pass an empty string
   const restartGame = () => {
-    setUserInput("apple through queen squeal fry fluent")
+    setUserInput("")
     setInputTranslated("")
   }
 
