@@ -22,10 +22,10 @@ const App = () => {
       // NO MODIFICATION NEEDED: this code will look at each word and identify the vowels
       const vowelsArray = eachWord.split("").filter(vowel => {
         return (
-          vowel === "a" || 
-          vowel === "e" || 
-          vowel === "i" || 
-          vowel === "o" || 
+          vowel === "a" ||
+          vowel === "e" ||
+          vowel === "i" ||
+          vowel === "o" ||
           vowel === "u"
         )
       })
@@ -33,10 +33,12 @@ const App = () => {
 
       // ACTION ITEM: your Pig Latin logic goes here!
       // want vowelsArray.includes()
-      if (vowelsArray.includes(eachWord.charAt(0)))  {
-          eachWord = eachWord.concat("way")
-      }
-    
+      if (vowelsArray.includes(eachWord.charAt(0))) {
+        return eachWord.concat("way")
+      } else if (eachWord.startsWith("qu"))
+        return eachWord.slice(2).concat("quay")
+      else if (eachWord.includes("y"))
+        return eachWord
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
