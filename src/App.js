@@ -95,7 +95,7 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2022 | Coded by: Your Names Here!</footer>
+      <footer>&copy; 2022 | Created By: Zack Rohde and Tawn Peou </footer>
     </div>
   )
 }
